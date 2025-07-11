@@ -57,6 +57,12 @@ img = cv.imread(imgpPath)
 # ========== Edge Cascade
 # edge = cv.Canny(img, 125, 175)
 
+# ========== Erode
+# erode = cv.erode(edge, (3,3), iterations=1)
+
+# ========== Dilation
+# dilate = cv.dilate(erode, (3,3), iterations=2)
+
 # ========== Gradient
 # # Laplacian
 # laplacian = cv.Laplacian(gray_img ,cv.CV_64F)
