@@ -10,9 +10,11 @@ image = cv2.imread('Images/pic8.jpg')
 if image is None:
     print("Error: Image not found or failed to load.")
     exit()
-
+    
+resize = cv2.resize(image, (1280, 720))
 # Convert to grayscale
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+gray = cv2.cvtColor(resize, cv2.COLOR_BGR2GRAY)
+
 
 # Detect faces in the image
 faces = face_cascade.detectMultiScale(
@@ -23,12 +25,12 @@ faces = face_cascade.detectMultiScale(
 
 # Draw rectangles around detected faces
 for (x_axis, y_axis, width, height) in faces:
-    cv2.rectangle(image, (x_axis, y_axis), 
+    cv2.rectangle(resize, (x_axis, y_axis), 
                   (x_axis+width, y_axis+height), 
                   (0, 255, 0), 
                   2)
 
 # Show the result
-cv2.imshow('Detected Faces', image)
+cv2.imshow('Detected Faces', resize)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
